@@ -32,7 +32,6 @@ export default function FormViagem() {
     veiculo: null
   })
 
-  // Busca os veículos
   useEffect(() => {
     api.get('/veiculos').then(resposta => {
       setVeiculos(resposta.data)
@@ -43,10 +42,16 @@ export default function FormViagem() {
     if (id !== undefined) {
       api.get(`/viagens/${id}`)
         .then(resposta => {
-          setViagem(resposta.data)
+          const dadosViagem = resposta.data
+          setViagem({
+            ...dadosViagem,
+            distancia: Number(dadosViagem.distancia),
+            vagasDisponiveis: Number(dadosViagem.vagasDisponiveis)
+          })
         })
-        .catch(erro => {
-          alert('Erro ao buscar os dados da viagem.')
+        .catch((erro: any) => {
+          const mensagemErro = erro.response?.data?.message || 'Erro desconhecido'
+          alert(`Erro ao buscar os dados da viagem: ${mensagemErro}`)
           console.error(erro)
         })
     }
