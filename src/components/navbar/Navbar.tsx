@@ -1,6 +1,4 @@
 import { Link, useLocation } from 'react-router-dom'
-import { btnPrimary, colors } from '../../theme'
-
 
 export function Navbar() {
   const location = useLocation()
@@ -18,58 +16,34 @@ export function Navbar() {
     botao = { label: '+ Novo veículo', to: '/veiculos/form' }
   }
 
-  const linkStyle = (path: string) => ({
-    fontSize: '13px',
-    fontWeight: 500,
-    color: location.pathname.startsWith(path)
-      ? colors.text
-      : colors.muted,
-    textDecoration: 'none',
-    transition: '0.2s',
-  })
+  const getLinkClass = (path: string) => {
+    const isActive = location.pathname.startsWith(path) && (path !== '/' || location.pathname === '/')
+    return `text-[13px] font-medium no-underline transition-colors duration-200 ${
+      isActive ? 'text-text' : 'text-muted hover:text-text'
+    }`
+  }
 
   return (
-    <nav style={{
-      backgroundColor: colors.surface,
-      borderBottom: `1px solid ${colors.border}`,
-    }}>
-
-      <div style={{
-        maxWidth: '1200px',
-        margin: '0 auto',
-        padding: '14px 24px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-      }}>
-
-        <Link to="/" style={{ textDecoration: 'none' }}>
-          <span style={{
-            fontFamily: "'Space Grotesk', sans-serif",
-            fontSize: '16px',
-            fontWeight: 700,
-            color: colors.accent,
-          }}>
+    <nav className="bg-surface border-b border-border">
+      <div className="max-w-300 mx-auto px-6 py-3.5 flex items-center justify-between">
+        
+        <Link to="/" className="no-underline">
+          <span className="font-display text-base font-bold text-accent">
             ✦ Astra
           </span>
         </Link>
 
-        <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-          <Link to="/" style={linkStyle('/')}>Home</Link>
-          <Link to="/introducao" style={linkStyle('/introducao')}>Introdução</Link>
-          <Link to="/sobre" style={linkStyle('/sobre')}>Sobre</Link>
-          <Link to="/veiculos" style={linkStyle('/veiculos')}>Veículos</Link>
-          <Link to="/viagens" style={linkStyle('/viagens')}>Viagens</Link>
+        <div className="flex gap-5 items-center">
+          <Link to="/" className={getLinkClass('/')}>Home</Link>
+          <Link to="/introducao" className={getLinkClass('/introducao')}>Introdução</Link>
+          <Link to="/sobre" className={getLinkClass('/sobre')}>Sobre</Link>
+          <Link to="/veiculos" className={getLinkClass('/veiculos')}>Veículos</Link>
+          <Link to="/viagens" className={getLinkClass('/viagens')}>Viagens</Link>
         </div>
 
         {botao && (
           <Link to={botao.to}>
-            <button style={{
-              ...btnPrimary,
-              padding: '7px 16px',
-              fontSize: '13px',
-              borderRadius: '8px',
-            }}>
+            <button className="bg-primary text-text px-4 py-1.75 text-[13px] font-medium rounded-lg transition-colors hover:opacity-90">
               {botao.label}
             </button>
           </Link>

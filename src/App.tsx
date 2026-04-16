@@ -4,13 +4,11 @@ import Footer from './components/footer/Footer';
 import Home from './pages/home/Home';
 import Introducao from './pages/introducao/Introducao';
 import Sobre from './pages/sobre/Sobre';
-import { pageStyle } from './theme'
 
 function App() {
   return (
     <BrowserRouter>
       <div style={{
-        ...pageStyle,
         display: 'flex',
         flexDirection: 'column'
       }}>
