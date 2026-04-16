@@ -1,24 +1,28 @@
 @import "tailwindcss";
 
 @theme {
-  /* Definindo as fontes */
   --font-sans: "Inter", sans-serif;
   --font-display: "Space Grotesk", sans-serif;
 
-  /* Definindo os Tokens de Cor do Astra */
-  /* Coloquei um tema escuro moderno, mas vocês podem alterar os códigos HEX depois */
-  --color-astra-bg: #09090b;
-  --color-astra-surface: #18181b;
-  --color-astra-surface-hover: #27272a;
-  --color-astra-primary: #3b82f6;
-  --color-astra-accent: #8b5cf6;
-  --color-astra-text: #fafafa;
-  --color-astra-muted: #a1a1aa;
-  --color-astra-danger: #ef4444;
+  --color-astra-bg: #0D0F1A;
+  --color-astra-surface: #161929;
+  --color-astra-surface-hover: #1E2235;
+  --color-astra-border: #1E2A4A;
+  --color-astra-primary: #4C6EF5;
+  --color-astra-accent: #39FF9C;
+  --color-astra-text: #E8EAF6;
+  --color-astra-muted: #8B90B0;
+  --color-astra-danger: #F87171;
 }
 
-/* Aplicando as cores de fundo e texto globais */
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
 body {
-  background-color: var(--color-astra-bg);
-  color: var(--color-astra-text);
+  background-color: #0D0F1A;
+  color: #E8EAF6;
+  font-family: 'Inter', sans-serif;
 }
