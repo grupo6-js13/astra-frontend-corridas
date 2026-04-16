@@ -1,30 +1,33 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Navbar from './components/navbar/Navbar';
-import Footer from './components/footer/Footer';
-import Home from './pages/home/Home';
-import Introducao from './pages/introducao/Introducao';
-import Sobre from './pages/sobre/Sobre';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-function App() {
+import { Home } from './pages/home/Home'
+import Navbar from './components/navbar/Navbar'
+import Footer from './components/footer/Footer'
+import { Sobre } from './pages/sobre/Sobre'
+
+// Se tiver Navbar/Footer, pode importar igual no outro App
+// import Navbar from './components/Navbar'
+// import Footer from './components/Footer'
+
+export default function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-astra-bg flex flex-col font-sans">
-        
+      <div className="min-h-screen flex flex-col">
+
         <Navbar />
-        
-        <main className="flex-grow container mx-auto px-4 py-8">
+
+        <main className="grow">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/introducao" element={<Introducao />} />
+            {/* <Route path="/viagens" element={<ListarViagens />} />
+            <Route path="/veiculos" element={<ListarVeiculos />} /> */}
             <Route path="/sobre" element={<Sobre />} />
           </Routes>
         </main>
 
         <Footer />
-        
+
       </div>
     </BrowserRouter>
-  );
+  )
 }
-
-export default App;
