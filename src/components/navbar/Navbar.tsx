@@ -9,7 +9,8 @@ export default function Navbar() {
         </Link>
         <div className="flex gap-6 font-medium">
           <Link to="/" className="hover:text-astra-accent transition-colors">Home</Link>
-          <Link to="/introducao" className="hover:text-astra-accent transition-colors">Introdução</Link>
+          <Link to="/viagens" className="hover:text-astra-accent transition-colors">Viagens</Link>
+          <Link to="/veiculos" className="hover:text-astra-accent transition-colors">Veículos</Link>
           <Link to="/sobre" className="hover:text-astra-accent transition-colors">Sobre</Link>
         </div>
       </div>
