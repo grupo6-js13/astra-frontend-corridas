@@ -25,7 +25,7 @@ export function Navbar() {
       border-b border-border
       sticky top-0 z-50
     ">
-      <div className="max-w-[1100px] mx-auto px-6 py-3 flex items-center justify-between">
+      <div className="max-w-275 mx-auto px-6 py-3 flex items-center justify-between">
 
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 no-underline">
