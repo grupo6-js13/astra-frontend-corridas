@@ -5,9 +5,9 @@ export interface Viagem {
   id: number
   origem: string
   destino: string
-  distancia: number
+  distancia?: number
   periodo: string
-  vagasDisponiveis: number
+  vagasDisponiveis?: number
   preco?: number
   tempoEstimado?: number
   usuario: Usuario | null
