@@ -16,25 +16,67 @@ export function Navbar() {
     botao = { label: '+ Novo veículo', to: '/veiculos/form' }
   }
 
+  const linkBase = "text-sm text-muted hover:text-text transition-colors"
+  const linkActive = "text-text font-medium"
+
   return (
-    <nav className="bg-surface border-b border-border">
-      <div className="max-w-300 mx-auto px-6 py-3.5 flex items-center justify-between">
-        
-        <Link to="/" className="no-underline">
-          <span className="font-display text-base font-bold text-accent">
+    <nav className="
+      bg-surface/80 backdrop-blur
+      border-b border-border
+      sticky top-0 z-50
+    ">
+      <div className="max-w-[1100px] mx-auto px-6 py-3 flex items-center justify-between">
+
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-2 no-underline">
+          <span className="font-display text-lg font-bold text-accent">
             ✦ Astra
           </span>
         </Link>
-        <div className="flex gap-6 font-medium">
-          <Link to="/" className="hover:text-astra-accent transition-colors">Home</Link>
-          <Link to="/viagens" className="hover:text-astra-accent transition-colors">Viagens</Link>
-          <Link to="/veiculos" className="hover:text-astra-accent transition-colors">Veículos</Link>
-          <Link to="/sobre" className="hover:text-astra-accent transition-colors">Sobre</Link>
+
+        {/* Links */}
+        <div className="flex items-center gap-6">
+          
+          <Link
+            to="/"
+            className={`${linkBase} ${location.pathname === '/' ? linkActive : ''}`}
+          >
+            Home
+          </Link>
+
+          <Link
+            to="/viagens"
+            className={`${linkBase} ${location.pathname.startsWith('/viagens') ? linkActive : ''}`}
+          >
+            Viagens
+          </Link>
+
+          <Link
+            to="/veiculos"
+            className={`${linkBase} ${location.pathname.startsWith('/veiculos') ? linkActive : ''}`}
+          >
+            Veículos
+          </Link>
+
+          <Link
+            to="/sobre"
+            className={`${linkBase} ${location.pathname === '/sobre' ? linkActive : ''}`}
+          >
+            Sobre
+          </Link>
+
         </div>
 
+        {/* Botão dinâmico */}
         {botao && (
           <Link to={botao.to}>
-            <button className="bg-primary text-text px-4 py-1.75 text-[13px] font-medium rounded-lg transition-colors hover:opacity-90">
+            <button className="
+              bg-primary text-white
+              px-4 py-2 rounded-lg
+              text-sm font-medium
+
+              hover:opacity-90 transition
+            ">
               {botao.label}
             </button>
           </Link>
