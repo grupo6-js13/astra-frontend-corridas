@@ -16,13 +16,6 @@ export function Navbar() {
     botao = { label: '+ Novo veículo', to: '/veiculos/form' }
   }
 
-  const getLinkClass = (path: string) => {
-    const isActive = location.pathname.startsWith(path) && (path !== '/' || location.pathname === '/')
-    return `text-[13px] font-medium no-underline transition-colors duration-200 ${
-      isActive ? 'text-text' : 'text-muted hover:text-text'
-    }`
-  }
-
   return (
     <nav className="bg-surface border-b border-border">
       <div className="max-w-300 mx-auto px-6 py-3.5 flex items-center justify-between">
