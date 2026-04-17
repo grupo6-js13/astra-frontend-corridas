@@ -1,11 +1,20 @@
 @import "tailwindcss";
 
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
 @theme {
   --color-bg: #0D0F1A;
   --color-surface: #161929;
   --color-surface-hover: #1E2235;
   --color-border: #1E2A4A;
-  --color-primary: #4C6EF5;
+  --color-primary: #728df7;
   --color-accent: #39FF9C;
   --color-text: #E8EAF6;
   --color-muted: #8B90B0;
@@ -20,12 +29,15 @@
 
   --font-sans: "Inter", sans-serif;
   --font-display: "Space Grotesk", sans-serif;
+
+  --animate-float: float 4s ease-in-out infinite;
 }
 
 * {
-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
   @apply bg-bg text-text font-sans;
 }
+
