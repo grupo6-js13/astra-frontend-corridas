@@ -1,16 +1,16 @@
 # Astra Corridas Compartilhadas - Frontend
 
 <p align="center">
-  <a href="https://vitejs.dev/" target="blank"><img src="https://vitejs.dev/logo.svg" width="120" alt="Vite Logo" /></a>
+  <a href="https://astra-frontend-corridas.vercel.app/" target="blank"><img src="https://ik.imagekit.io/jeaninny/Astra/Fundo%20Astra%20README.png" width="500" alt="Astra Logo"/></a>
 </p>
 
 <div align="center">
-  <img src="https://img.shields.io/github/languages/top/grupo6-js13/corridacompartilhada_frontend?style=flat-square" />
-  <img src="https://img.shields.io/github/repo-size/grupo6-js13/corridacompartilhada_frontend?style=flat-square" />
-  <img src="https://img.shields.io/github/languages/count/grupo6-js13/corridacompartilhada_frontend?style=flat-square" />
-  <img src="https://img.shields.io/github/last-commit/grupo6-js13/corridacompartilhada_frontend?style=flat-square" />
-  <img src="https://img.shields.io/github/issues/grupo6-js13/corridacompartilhada_frontend?style=flat-square" />
-  <img src="https://img.shields.io/badge/status-construção-yellow" alt="Status: Em Construção">
+  <img src="https://img.shields.io/github/languages/top/grupo6-js13/astra-frontend-corridas?style=flat-square" />
+  <img src="https://img.shields.io/github/repo-size/grupo6-js13/astra-frontend-corridas?style=flat-square" />
+  <img src="https://img.shields.io/github/languages/count/grupo6-js13/astra-frontend-corridas?style=flat-square" />
+  <img src="https://img.shields.io/github/last-commit/grupo6-js13/astra-frontend-corridas?style=flat-square" />
+  <img src="https://img.shields.io/github/issues/grupo6-js13/astra-frontend-corridas?style=flat-square" />
+  <img src="https://img.shields.io/badge/status-em%20produção-green" alt="Status: Em Produção">
 </div>
 
 ---
@@ -19,26 +19,55 @@
 
 Interface web da plataforma **Astra Corridas Compartilhadas**, desenvolvida para oferecer uma experiência intuitiva e segura na busca e gerenciamento de caronas universitárias. O frontend consome a API REST do projeto backend e permite que os usuários interajam com as funcionalidades da plataforma de forma simples e fluida.
 
----
-
-## 2. Recursos
-
-1. **Listagem e busca de viagens** — visualização das viagens disponíveis com filtros por origem, destino e período
-2. **Detalhes de uma viagem** — exibição completa das informações de uma viagem, incluindo veículo e motorista
-3. **Criação de viagem** — formulário para cadastrar novas viagens vinculadas ao usuário autenticado
-4. **Cadastro de veículo** — registro de veículos para serem utilizados nas viagens
+🔗 **Deploy:** [astra-frontend-corridas.vercel.app](https://astra-frontend-corridas.vercel.app/)
 
 ---
 
-## 3. Protótipo e Capturas de Tela
+## 2. Funcionalidades
 
-> 🚧 Em breve — prints e protótipo serão adicionados conforme o desenvolvimento avança.
+1. **Listagem de viagens** — visualização das viagens disponíveis com filtros por origem, destino e período
+2. **Cadastro e edição de viagem** — formulário para criar e atualizar viagens, com cálculo automático de preço e tempo estimado pelo backend
+3. **Listagem de veículos** — visualização dos veículos cadastrados na plataforma
+4. **Cadastro e edição de veículo** — registro e atualização de veículos disponíveis para as viagens
+
+---
+
+## 3. Capturas de Tela
+
+<div align="center">
+
+<table>
+  <tr>
+    <td align="center" colspan="2"><b>Home</b></td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2"><img src="https://ik.imagekit.io/jeaninny/Astra/Astra-home.png" width="400" /></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Viagens</b></td>
+    <td align="center"><b>Veículos</b></td>
+  </tr>
+  <tr>
+    <td><img src="https://ik.imagekit.io/jeaninny/Astra/Astra-viagens.png" width="400" /></td>
+    <td><img src="https://ik.imagekit.io/jeaninny/Astra/Astra-veiculos.png" width="400" /></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Cadastrar Viagem</b></td>
+    <td align="center"><b>Cadastrar Veículo</b></td>
+  </tr>
+  <tr>
+    <td><img src="https://ik.imagekit.io/jeaninny/Astra/Astra-formviagem.png" width="400" /></td>
+    <td><img src="https://ik.imagekit.io/jeaninny/Astra/Astra-formveiculo.png" width="400" /></td>
+  </tr>
+</table>
+
+</div>
 
 ---
 
 ## 4. Diagrama de Classes (Models)
 
-O diagrama abaixo representa as interfaces/models utilizados no frontend e seus relacionamentos.
+O diagrama abaixo representa as interfaces TypeScript utilizadas no frontend e seus relacionamentos.
 
 ```mermaid
 classDiagram
@@ -70,7 +99,6 @@ class Usuario {
   usuario : string
   foto : string
   campus : string
-  token : string
 }
 
 Usuario --> Viagem : cria
@@ -79,41 +107,44 @@ Veiculo --> Viagem : utiliza
 
 ---
 
-## 5. Diagrama de Rotas e Navegação
+## 5. Rotas da Aplicação
 
-O diagrama abaixo representa o fluxo de navegação entre as páginas da aplicação.
-
-```mermaid
-flowchart TD
-    A[🏠 Home / Landing Page] --> B[📋 Listagem de Viagens]
-    B --> C[🔍 Detalhes de uma Viagem]
-    B --> D[➕ Criação de Viagem]
-    D --> E[🚗 Cadastro de Veículo]
-    E --> D
-```
+| Caminho | Página | Descrição |
+|---------|--------|-----------|
+| `/` | Home | Página inicial da plataforma |
+| `/introducao` | Introdução | Contexto e problema que o Astra resolve |
+| `/sobre` | Sobre | Informações sobre o projeto e a equipe |
+| `/viagens` | Listagem de Viagens | Lista todas as viagens com filtros |
+| `/viagens/form` | Cadastrar Viagem | Formulário de nova viagem |
+| `/viagens/form/:id` | Editar Viagem | Formulário de edição de viagem existente |
+| `/veiculos` | Listagem de Veículos | Lista todos os veículos cadastrados |
+| `/veiculos/form` | Cadastrar Veículo | Formulário de novo veículo |
+| `/veiculos/form/:id` | Editar Veículo | Formulário de edição de veículo existente |
 
 ---
 
 ## 6. Tecnologias
 
-| Item                         | Descrição  |
-| ---------------------------- | ---------- |
-| **Servidor**                 | Node JS    |
-| **Linguagem de programação** | TypeScript |
-| **Biblioteca**               | React JS   |
-| **Build**                    | Vite       |
-| **Framework de Estilização** | Tailwind   |
+| Item | Descrição |
+|------|-----------|
+| **Linguagem** | TypeScript |
+| **Biblioteca** | React JS |
+| **Build** | Vite |
+| **Estilização** | Tailwind CSS v4 |
+| **Roteamento** | React Router DOM |
+| **Requisições HTTP** | Axios |
+| **Ícones** | Phosphor Icons |
+| **Deploy** | Vercel |
 
 ---
 
 ## 7. Arquitetura do Projeto
 
-O projeto foi desenvolvido seguindo uma organização modular por responsabilidade, inspirada nas boas práticas de projetos React modernos:
+O projeto segue uma organização modular por responsabilidade, aplicando boas práticas de projetos React modernos:
 
-- **Pages** → representam as telas da aplicação, compostas por componentes
-- **Components** → elementos reutilizáveis de interface
-- **Services** → camada de comunicação com a API via requisições HTTP
-- **Contexts** → gerenciamento de estado global (ex: usuário autenticado)
+- **Pages** → telas da aplicação, compostas por componentes
+- **Components** → elementos reutilizáveis de interface (Navbar, Footer)
+- **Services** → camada de comunicação com a API via Axios
 - **Models** → interfaces TypeScript que espelham as entidades do backend
 
 Essa separação facilita a manutenção, escalabilidade e reaproveitamento de código.
@@ -125,26 +156,36 @@ Essa separação facilita a manutenção, escalabilidade e reaproveitamento de c
 ```plaintext
 src/
 │
-├── components/       # Componentes reutilizáveis
-├── contexts/         # Gerenciamento de estado global (ex: autenticação)
+├── components/       # Componentes reutilizáveis (Navbar, Footer)
 ├── models/           # Interfaces TypeScript da aplicação
 ├── pages/            # Páginas da aplicação
+│   ├── home/
+│   ├── sobre/
+│   ├── veiculos/
+│   └── viagens/
 ├── services/         # Integração com a API (requisições HTTP)
-├── utils/            # Funções auxiliares (alerts)
-└── App.tsx           # Componente principal da aplicação
+├── theme.ts          # Tokens de design (cores, estilos)
+└── App.tsx           # Componente principal e configuração de rotas
 ```
 
 ---
 
-## 09. Integração com o Backend
+## 9. Integração com o Backend
 
 Este frontend consome a API REST do projeto backend, que expõe os seguintes recursos principais:
 
-| Recurso    | Descrição                                      |
-| ---------- | ---------------------------------------------- |
-| `/usuario` | Cadastro e autenticação de usuários            |
-| `/viagem`  | Criação, listagem e atualização de viagens     |
-| `/veiculo` | Cadastro e seleção de veículos para as viagens |
+| Recurso | Descrição |
+|---------|-----------|
+| `POST /usuarios/cadastrar` | Cadastro de usuários |
+| `POST /usuarios/logar` | Autenticação de usuários |
+| `GET /viagens` | Listagem de viagens |
+| `POST /viagens/cadastrar` | Criação de viagem |
+| `PUT /viagens` | Atualização de viagem |
+| `DELETE /viagens/:id` | Exclusão de viagem |
+| `GET /veiculos` | Listagem de veículos |
+| `POST /veiculos` | Criação de veículo |
+| `PUT /veiculos` | Atualização de veículo |
+| `DELETE /veiculos/:id` | Exclusão de veículo |
 
 🔗 [Repositório do Backend](https://github.com/grupo6-js13/corridacompartilhada_backend)
 
@@ -152,24 +193,23 @@ Este frontend consome a API REST do projeto backend, que expõe os seguintes rec
 
 ## 10. Boas Práticas Aplicadas
 
-Durante o desenvolvimento foram aplicados conceitos utilizados em projetos reais:
-
 - Organização modular por responsabilidade
 - Tipagem forte com TypeScript e interfaces bem definidas
 - Separação entre lógica de negócio (services) e apresentação (components/pages)
-- Gerenciamento de estado global com Context API
+- Sistema de design tokens centralizado em `theme.ts`
 - Estrutura preparada para escalabilidade
 
 ---
 
 ## 11. Diferenciais Técnicos
 
-✅ Construção de SPA com React JS e TypeScript  
+✅ SPA desenvolvida com React JS e TypeScript  
 ✅ Integração completa com API REST NestJS  
-✅ Modelagem de interfaces espelhando entidades do backend  
-✅ Estilização responsiva com Tailwind CSS  
+✅ CRUD completo de Viagem e Veículo  
+✅ Cálculo automático de preço e tempo estimado via backend  
+✅ Estilização responsiva com Tailwind CSS v4  
+✅ Sistema de design tokens para consistência visual entre componentes  
 ✅ Organização modular escalável  
-✅ Uso profissional de TypeScript no frontend  
 
 ---
 
@@ -178,32 +218,45 @@ Durante o desenvolvimento foram aplicados conceitos utilizados em projetos reais
 Para executar o projeto localmente:
 
 - Node.js 18+
-- yarn
-- API NestJS em execução
+- npm
+- API NestJS em execução (ver backend)
 
 ---
 
 ## 13. Configuração e Execução
 
-1. Clone este repositório
-2. Instale as dependências: `yarn`
-3. Clone e execute o backend: [Repositório do Backend](https://github.com/grupo6-js13/corridacompartilhada_backend)
-   - Siga as instruções de **Configuração e Execução** descritas no README do backend
-4. Configure a variável de ambiente com o endereço da API:
+1. Clone este repositório:
+   ```bash
+   git clone https://github.com/grupo6-js13/astra-frontend-corridas
+   cd astra-frontend-corridas
+   ```
+
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+
+3. Configure a variável de ambiente com o endereço da API:
    ```env
    VITE_API_URL=http://localhost:4000
    ```
-5. Execute o projeto: `yarn dev`
-6. A aplicação estará disponível em: `http://localhost:5173`
+
+4. Execute o projeto:
+   ```bash
+   npm run dev
+   ```
+
+5. Acesse em: `http://localhost:5173`
+
+> Para rodar com o backend local, clone e execute o [Repositório do Backend](https://github.com/grupo6-js13/corridacompartilhada_backend) seguindo as instruções do README correspondente.
 
 ---
 
-## 15. Autores
+## 14. Autores
 
-**Orbyte - Onde as ideias orbitam em torno de conhecimento e tecnologia**
+**Orbyte — Onde ideias orbitam a tecnologia**
 
-🔗 **GitHub:** https://github.com/grupo6-js13/
-
+🔗 **GitHub:** https://github.com/grupo6-js13/  
 🔗 **E-mail:** grupo6js13@gmail.com
 
 Projeto desenvolvido para **aprendizado contínuo**, **demonstração técnica** e **portfólio profissional**.
