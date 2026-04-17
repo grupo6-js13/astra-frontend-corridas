@@ -8,11 +8,20 @@ import Sobre from './pages/sobre/Sobre';
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-astra-bg flex flex-col font-sans">
-        
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column'
+      }}>
+
         <Navbar />
-        
-        <main className="flex-grow container mx-auto px-4 py-8">
+
+
+        <main style={{
+          flexGrow: 1,
+          padding: '32px 16px',
+          maxWidth: '1200px',
+          margin: '0 auto'
+        }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/introducao" element={<Introducao />} />
@@ -21,9 +30,9 @@ function App() {
         </main>
 
         <Footer />
-        
+
       </div>
-    </BrowserRouter>
+    </BrowserRouter >
   );
 }
 
