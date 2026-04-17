@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const stats = [
     { value: '+2h', label: 'economizadas no trânsito' },
     { value: '70%', label: 'dos carros subutilizados' },
@@ -56,16 +58,16 @@ export function Hero() {
                 {/* Buttons */}
                 <div className="flex gap-3.5 justify-center flex-wrap mb-14">
 
-                    <button className="
+                    <Link to="/viagens" className="
             bg-primary text-white
             px-6 py-3 rounded-lg
             text-sm font-medium
             hover:opacity-90 transition
           ">
                         Ver viagens disponíveis
-                    </button>
+                    </Link>
 
-                    <button className="
+                    <Link to="/viagens/form" className="
             bg-transparent text-accent
             border border-accent/40
             px-6 py-3 rounded-lg
@@ -73,7 +75,7 @@ export function Hero() {
             hover:bg-accent/10 transition
           ">
                         Cadastrar agora
-                    </button>
+                    </Link>
 
                 </div>
 
